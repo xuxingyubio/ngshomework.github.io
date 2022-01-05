@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Analysis Process - Myhomework</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Analysis Process";
+    var mkdocs_page_input_path = "Analysisprocess.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Myhomework</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Background</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../introduction/">Introduction</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Analysis Process</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">数据来源与下载</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fastq">转换为fastq数据</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">质控</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bwa">bwa比对</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_3">饱和度分析</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#picard">Picard去重复</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bamtools">使用bamtools过滤</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#homerfindpeaks">HOMER来findpeaks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#bedtoolspeaks">bedtools合并重复样本的peaks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#medips">MEDIPS差异分析</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dhmrs">DhMRs在生物复制中均达到峰值</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dhmrsencode">剔除DhMRs中ENCODE的黑名单区域</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_4">注释</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#chipseeker">ChIPseeker注释</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#homer">homer注释</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#go">GO分析</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#kegg">KEGG分析</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../RNA-Seqresult/">RNA-Seq Results</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../resultanalysis/">Result Analysis</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Myhomework</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Analysis Process</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="hmedip-seq">hMeDIP-Seq</h1>
+<h2 id="_1">数据来源与下载</h2>
+<table>
+<thead>
+<tr>
+<th>SRA号</th>
+<th>样本名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SRR3330428</td>
+<td>5hmC_Adult_rep1</td>
+</tr>
+<tr>
+<td>SRR3330429</td>
+<td>5hmC_Adult_rep2</td>
+</tr>
+<tr>
+<td>SRR3330426</td>
+<td>5hmC_Neonatal_rep1</td>
+</tr>
+<tr>
+<td>SRR3330427</td>
+<td>5hmC_Neonatal_rep2</td>
+</tr>
+<tr>
+<td>SRR3330440</td>
+<td>INPUT_DNA_Adult_rep1</td>
+</tr>
+<tr>
+<td>SRR3330441</td>
+<td>INPUT_DNA_Adult_rep2</td>
+</tr>
+<tr>
+<td>SRR3330438</td>
+<td>INPUT_DNA_Neonatal_rep1</td>
+</tr>
+<tr>
+<td>SRR3330439</td>
+<td>INPUT_DNA_Neonatal_rep2</td>
+</tr>
+</tbody>
+</table>
+<p>通过NCBI官方推荐的prefetch来下载数据：</p>
+<pre><code>prefetch SRR3330428 SRR3330429 SRR3330426 SRR3330427 SRR3330440 SRR3330441 SRR3330438 SRR3330439
+</code></pre>
+<p>下载的数据会存储在这个目录下：~/ncbi/public/sra/ ，
+注意查看下载数据是否完整！
+然后通过mv将其移动到指定文件夹，并重新命名（重命名名字为上述样本名）。</p>
+<h2 id="fastq">转换为fastq数据</h2>
+<pre><code>ls *sra | while read id; 
+do 
+    fastq-dump --gzip --split-files -O fastq/ ${id} ; 
+done
+</code></pre>
+<p><img alt="运行结果" src="../img/3.png" title="运行结果" />
+只出现_1表明为单端数据。</p>
+<h2 id="_2">质控</h2>
+<p>FastQC质量控制+MultiQC对FastQC结果进行整合</p>
+<pre><code>ls *gz | sed 's/_[0-9].fastq.gz//g' | sort -u | while read id; 
+do
+    fastqc -t 8 ${id}_1.fastq.gz  -o ./QC_results; 
+done
+multiqc ./QC_results/
+</code></pre>
+<p>以第一个5hmC_Adult_rep1结果为例：
+<img alt="结果1" src="../img/4.png" title="结果1" />
+<img alt="结果2" src="../img/5.png" title="结果2" />
+multiqc结果：
+<img alt="结果3" src="../img/6.png" title="结果3" />
+<img alt="结果4" src="../img/7.png" title="结果4" />
+<img alt="结果5" src="../img/8.png" title="结果5" />
+可见有接头污染！
+利用fastp过滤低质量序列、修剪接头序列，然后再进行FastQC和MultiQC。</p>
+<pre><code>ls *gz | sed 's/_[0-9].fastq.gz//g' | sort -u | while read id
+do 
+    fastp -i ${id}_1.fastq.gz -o ./clean/${id}.fastq.gz
+done
+ls *gz | sed 's/_[0-9].fastq.gz//g' | sort -u | while read id; 
+do
+    fastqc -t 8 ${id}_1.fastq.gz  -o ./QC_results; 
+done
+multiqc ./QC_results/
+</code></pre>
+<p>以第一个5hmC_Adult_rep1结果为例：
+<img alt="新结果1" src="../img/9.png" title="新结果1" />
+<img alt="新结果2" src="../img/10.png" title="新结果2" />
+multiqc结果：
+<img alt="新结果3" src="../img/11.png" title="新结果3" />
+<img alt="新结果4" src="../img/12.png" title="新结果4" />
+<img alt="新结果5" src="../img/13.png" title="新结果5" />
+可以发现利用fastp去接头效果明显，处理后的数据全部满足条件。</p>
+<h2 id="bwa">bwa比对</h2>
+<p>构建索引：</p>
+<pre><code>bwa index mm10.fa -p genome
+</code></pre>
+<p><img alt="构建过程" src="../img/14.png" title="构建过程" />
+比对：</p>
+<pre><code>ls *fastq.gz | sed 's/.fastq.gz//g' | sort -u | while read id; 
+do
+    bwa mem -t 10 /public/workspace/stu19230111/reference/index/bwa/mm10.fa ${id}.fastq.gz &gt; ./align/${id}.sam;
+done
+</code></pre>
+<p><img alt="比对过程" src="../img/15.png" title="比对过程" />
+查看比对率：</p>
+<pre><code>samtools flagstat -@ 8 /public/workspace/stu19230111/MeDIP-Seq/fastq/clean/align/5hmC_Adult_rep1.sam
+</code></pre>
+<p><img alt="比对结果" src="../img/16.png" title="比对结果" /></p>
+<h2 id="_3">饱和度分析</h2>
+<p>首先是转为二进制文件bam：</p>
+<pre><code>ls *.sam &gt; sam_name
+cat sam_name | sed 's/.sam//g' | while read id ; 
+do
+       samtools view -b -o ${id}.pe.bam -@ 4 ${id}.sam;
+done
+</code></pre>
+<p>用MEDIPS包取映射后评估质量控制和饱和度分析：</p>
+<pre><code>library(&quot;MEDIPS&quot;)
+library(&quot;BSgenome&quot;)
+library(&quot;BSgenome.Mmusculus.UCSC.mm10&quot;)
+BSgenome=&quot;BSgenome.Mmusculus.UCSC.mm10&quot;
+#为了避免PCR扩增引起的人工干扰，MEDIPS通过全基因组范围内堆叠reads的泊松分布和给定的p值来确定允许每个基因组位置的堆叠reads数：
+uniq=1e-3
+extend=300
+#reads延伸长度，主要根据MeDIP处理时碎裂DNA得到的片段的平均长度设定
+#例如reads长度为50bp，而碎裂的片段平均长度为300bp，则参数extend=250bp。
+#此外，需要注意：如果是双末端测序reads，无需延伸，即参数extend=0
+shift=0
+ws=200
+Adult_rep1 = MEDIPS.saturation(file = &quot;5hmC_Adult_rep1.pe.bam&quot;, BSgenome = BSgenome,
+    uniq = uniq, extend = extend, shift = shift, window_size = ws,
+    , nit = 10, nrit = 1, empty_bins = TRUE,rank = FALSE)
+png(file=&quot;Adult_rep1.png&quot;, bg=&quot;transparent&quot;)
+MEDIPS.plotSaturation(Adult_rep1)
+dev.off()
+</code></pre>
+<p><img alt="分析结果" src="../img/Adult_rep1.png" title="分析结果" /></p>
+<h2 id="picard">Picard去重复</h2>
+<p>标记重复序列，标记PCR重复之前需要先coordinate sort，最后去除PCR重复。</p>
+<pre><code>ls *.pe.bam &gt; pe.bam_name
+cat pe.bam_name | sed 's/.pe.bam//g' | while read id ;
+do
+    picard SortSam   -I   ${id}.pe.bam   -O   ${id}.pe.rg2.srt.bam   --SORT_ORDER coordinate; 
+done
+ls *.pe.rg2.srt.bam &gt; pe.rg2.srt.bam_name
+cat pe.rg2.srt.bam_name | sed 's/.pe.rg2.srt.bam//g' | while read id ;
+do
+    picard MarkDuplicates       -I ${id}.pe.rg2.srt.bam       -O   ${id}.pe.rg2.md.bam       -M ${id}.marked_dup_metrics.txt;
+done
+</code></pre>
+<p><img alt="排序过程" src="../img/17.png" title="排序过程" />
+<img alt="去重过程" src="../img/18.png" title="去重过程" /></p>
+<h2 id="bamtools">使用bamtools过滤</h2>
+<p>使用bamtools工具过滤"mapQ"&lt;10（mapping的质量值）：</p>
+<pre><code>ls *.pe.rg2.md.bam &gt; pe.rg2.md.bam_name 
+cat pe.rg2.md.bam_name | sed 's/.pe.rg2.md.bam//g' | while read id ; 
+do
+    bamtools filter -in ${id}.pe.rg2.md.bam  -mapQuality &quot;&gt;10&quot; -out ${id}.pe.rg2.up10filter.bam
+done
+</code></pre>
+<h2 id="homerfindpeaks">HOMER来findpeaks</h2>
+<p>查看<a href="http://homer.ucsd.edu/homer/ngs/peaks.html">Homer的官网</a>介绍，可以发现Homer来findpeaks需要tag directory
+<img alt="查询1" src="../img/19.png" title="查询1" />
+<img alt="查询2" src="../img/20.png" title="查询2" />
+Create tag directory：</p>
+<pre><code>makeTagDirectory 5hmC_Adult_rep1.pe.rg2.up10filter 5hmC_Adult_rep1.pe.rg2.up10filter.sam -format sam
+</code></pre>
+<p><img alt="运行结果" src="../img/21.png" title="运行结果" />
+Findpeaks：</p>
+<pre><code>findPeaks 5hmC_Adult_rep1.pe.rg2.up10filter/ -i INPUT_DNA_Adult_rep1.pe.rg2.up10filter -style histone -o Adult_rep1.homer.peak.txt
+</code></pre>
+<p><img alt="运行结果" src="../img/22.png" title="运行结果" />
+通常我们需要的文件为bed，这有利于上传UCSC以及IGV可视化
+<img alt="参考" src="../img/23.png" title="参考" /></p>
+<pre><code>pos2bed.pl Adult_rep1.homer.peak.txt &gt; Adult_rep1.homer.peak.bed
+</code></pre>
+<p><img alt="运行结果" src="../img/24.png" title="运行结果" /></p>
+<h2 id="bedtoolspeaks">bedtools合并重复样本的peaks</h2>
+<pre><code>bedtools intersect -a Adult_rep1.homer.peak.bed -b Adult_rep2.homer.peak.bed &gt; Adult_peaks_both.bed
+bedtools intersect -a TAC_rep1.homer.peak.bed -b TAC_rep2.homer.peak.bed &gt; TAC_peaks_both.bed
+</code></pre>
+<h2 id="medips"><a href="http://master.bioconductor.org/packages/release/bioc/vignettes/MEDIPS/inst/doc/MEDIPS.pdf">MEDIPS</a>差异分析</h2>
+<p><img alt="分析代码" src="../img/25.png" title="分析代码" /></p>
+<h2 id="dhmrs">DhMRs在生物复制中均达到峰值</h2>
+<pre><code>sed '1d' DhMRs_ws200_extend300.txt &gt; DhMRs_ws200_extend300.bed
+bedtools intersect -a DhMRs_ws200_extend300.bed -b 5hmC_peaks_both.bed  -wa &gt; DhMRs_ws200_both_rep.bed
+</code></pre>
+<h2 id="dhmrsencode">剔除DhMRs中ENCODE的黑名单区域</h2>
+<p>？？不知道需不需要</p>
+<pre><code>bedtools subtract -a DhMRs_ws200_both_rep.bed -b ~/reference/index/ENCODE_blacklist_mm10.bed -A &gt; DhMRs_final.bed
+</code></pre>
+<h2 id="_4">注释</h2>
+<h3 id="chipseeker"><a href="https://www.jianshu.com/p/26aaba19a605">ChIPseeker</a>注释</h3>
+<pre><code>bedPeaksFile = 'DhMRs_final.bed'; 
+bedPeaksFile
+## loading packages
+require(ChIPseeker)
+require(TxDb.Mmusculus.UCSC.mm10.knownGene)
+txdb &lt;- TxDb.Mmusculus.UCSC.mm10.knownGene
+require(clusterProfiler) 
+peak &lt;- readPeakFile(bedPeaksFile)  
+keepChr= !grepl('_',seqlevels(peak))
+seqlevels(peak, pruning.mode=&quot;coarse&quot;) &lt;- seqlevels(peak)[keepChr]
+peakAnno &lt;- annotatePeak(peak, tssRegion=c(-3000, 3000), 
+                         TxDb=txdb, annoDb=&quot;org.Mm.eg.db&quot;) 
+peakAnno_df &lt;- as.data.frame(peakAnno)
+head(peakAnno_df)
+dim(peakAnno_df)
+write.table(peakAnno_df,file=&quot;DhMRs_ws200_extend300_annotation.txt&quot;,row.names = F,quote = F,sep=&quot;\t&quot;)
+pdf(&quot;peakanno.pdf&quot;)
+plotAnnoPie(peakAnno)
+dev.off()
+</code></pre>
+<p><img alt="peak结果" src="../img/26.png" title="peak结果" /></p>
+<h3 id="homer">homer注释</h3>
+<pre><code>annotatePeaks.pl DhMRs_final.bed mm10 &gt; peak.annotation.xls
+</code></pre>
+<h2 id="go">GO分析</h2>
+<p>这边用homer注释的文件进行分析的，会发现直接生成的xls文件在R中不能直接读取，可以复制重新存储</p>
+<pre><code>library(readxl)
+data = read_excel(&quot;ceshi.xlsx&quot;, sheet = 1)
+# Create a list with genes from each sample
+library(clusterProfiler)
+library(org.Mm.eg.db)
+sym2ent &lt;- bitr(data$`Gene Name`, fromType = &quot;SYMBOL&quot;, 
+                toType  = &quot;ENTREZID&quot;, 
+                OrgDb = org.Mm.eg.db)
+# Run GO enrichment analysis 
+ego &lt;- enrichGO(gene         = sym2ent$ENTREZID,
+                OrgDb         = org.Mm.eg.db,
+                keyType       = 'ENTREZID',
+                ont           = &quot;ALL&quot;, #CC,BP,MF,ALL
+                #pvalueCutoff  = 0.1,
+                #qvalueCutoff  = 0.1,
+                #minGSSize = 1, 
+                # maxGSSize = 500, #
+                readable = TRUE,)
+# Dotplot visualization
+pdf(&quot;GO_enrichment_DEG_ALL.pdf&quot;)
+dotplot(ego,title=&quot;EnrichmentGO&quot;,)
+dev.off()
+</code></pre>
+<p><img alt="GO结果" src="../img/27.png" title="GO结果" /></p>
+<h2 id="kegg">KEGG分析</h2>
+<pre><code>compKEGG &lt;- enrichKEGG(gene = sym2ent$ENTREZID, 
+                           organism = &quot;mmu&quot;,
+                           pvalueCutoff  = 1, qvalueCutoff =1)
+pdf(&quot;KEGG_pathway_DEG_ALL.pdf&quot;)
+dotplot(compKEGG,title=&quot;KEGG_pathway_ALL&quot;)
+dev.off()
+</code></pre>
+<p><img alt="KEGG结果" src="../img/28.png" title="KEGG结果" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../RNA-Seqresult/" class="btn btn-neutral float-right" title="RNA-Seq Results">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../introduction/" class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../introduction/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../RNA-Seqresult/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
